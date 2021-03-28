@@ -63,17 +63,19 @@ window.addEventListener("load",  () => {
             console.log(json)
             let missionTarget = document.getElementById("missionTarget");
             let randomIndex = Math.floor(Math.random() * json.length);
-            missionTarget.innerHTML = `
-            <h2>Mission Destination</h2>
-            <ol>
-               <li>Name: ${json[randomIndex].name}</li>
-               <li>Diameter: ${json[randomIndex].diameter}</li>
-               <li>Star: ${json[randomIndex].star}</li>
-               <li>Distance from Earth: ${json[randomIndex].distance}</li>
-               <li>Number of Moons: ${json[randomIndex].moons}</li>
-            </ol>
-            <img src="${json[randomIndex].image}">
-            `
+            if (launchStatus.style.color === "green" && pilotNameInput.value !== "" && copilotNameInput.value !== ""){
+               missionTarget.innerHTML = `
+               <h2>Mission Destination</h2>
+               <ol>
+                  <li>Name: ${json[randomIndex].name}</li>
+                  <li>Diameter: ${json[randomIndex].diameter}</li>
+                  <li>Star: ${json[randomIndex].star}</li>
+                  <li>Distance from Earth: ${json[randomIndex].distance}</li>
+                  <li>Number of Moons: ${json[randomIndex].moons}</li>
+               </ol>
+               <img src="${json[randomIndex].image}">
+               `
+            }
          })
 
       })
